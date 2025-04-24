@@ -1724,6 +1724,9 @@ PGVECTOR_INITIALIZE_MAX_VECTOR_LENGTH = int(
     os.environ.get("PGVECTOR_INITIALIZE_MAX_VECTOR_LENGTH", "1536")
 )
 
+# Duckdb
+DUCKDB_PATH = os.environ.get("DUCKDB_PATH", f"{DATA_DIR}/vector_db/duckdb.db")
+
 ####################################
 # Information Retrieval (RAG)
 ####################################

@@ -666,13 +666,14 @@ def generate_ollama_batch_embeddings(
     user: UserModel = None,
 ) -> Optional[list[list[float]]]:
     try:
-        log.debug(
+        log.info(
             f"generate_ollama_batch_embeddings:model {model} batch size: {len(texts)}"
         )
         json_data = {"input": texts, "model": model}
         if isinstance(RAG_EMBEDDING_PREFIX_FIELD_NAME, str) and isinstance(prefix, str):
             json_data[RAG_EMBEDDING_PREFIX_FIELD_NAME] = prefix
-
+            log.info(f"url {url} key {key} prefix {prefix}")
+        log.info(f"ollama embedding url {url}")
         r = requests.post(
             f"{url}/api/embed",
             headers={

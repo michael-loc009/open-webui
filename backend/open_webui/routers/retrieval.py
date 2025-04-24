@@ -934,6 +934,10 @@ def save_docs_to_vector_db(
             }
             for idx, text in enumerate(texts)
         ]
+        
+        log.info(
+            f"Saving {len(items)} documents to collection {collection_name}"
+        )
 
         VECTOR_DB_CLIENT.insert(
             collection_name=collection_name,
